@@ -3,7 +3,8 @@ $colorMap: (
 	backgroundDark: #454545,
 	whiteLight: #dadada,
 	fontDark: #1d1d1f,
-	primary: #0066cc
+	primary: #0066cc,
+	footerMenu: #424245,
 );
 
 @function color ($key) {
@@ -13,6 +14,7 @@ $colorMap: (
 $sizeMap: (
 	small: 12px,
 	default: 16px,
+	bsmall: 14px,
 );
 
 @function size ($key: 'default') {

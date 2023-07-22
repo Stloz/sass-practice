@@ -1,8 +1,14 @@
 @use '../../lib/service.scss' as s;
+@use '../../lib/var.scss' as var;
 
 .header {
 	@extend .section;
 	background-color: s.color('backgroundDark');
+}
+
+.ad {
+	@extend .section;
+	background-color: s.color('background');
 }
 
 .header__content {
@@ -13,10 +19,26 @@
 	justify-content: space-between;
 }
 
+.ad__content {
+	@extend .section__content;
+
+	display: flex;
+	flex-wrap: nowrap;
+	padding: s.space(4) 0;
+	justify-content: space-between;
+}
+
 .header__block {
 	display: flex;
 	gap: s.space(8);
 	align-items: center;
+}
+
+.ad__block {
+	display: flex;
+	gap: s.space(8);
+	align-items: center;
+	justify-content: space-between;
 }
 
 .header__icon {
@@ -25,7 +47,7 @@
 
 .header__link {
 	color: s.color('whiteLight');
-	font-size: s.size('small');
+	font-size: var.size('small');
 
 	@include s.click;
 }
@@ -43,6 +65,10 @@
 	// color: s.color('fontDark');
 }
 
+.ad__title {
+	font-size: s.size("bsmall");
+}
+
 .product__description {
 	font-size: 28px;
 }
@@ -58,6 +84,13 @@
 
 .product__link {
 	@include s.linkAction;
+}
+
+.ad__link {
+	text-decoration: none;
+	color: s.color("primary");
+	@include s.click;
+	font-size: s.size("bsmall");
 }
 
 .product {
@@ -131,8 +164,13 @@
 $productImage: (
 	'iphone-pro' '/img/iphone_pro.png' #000,
 	'iphone' '/img/iphone.png' #fafafa,
+	'iwatch' '/img/iwatch.png' #000,
 	'trade-in' '/img/trade-in.png' #fbfbfd,
 	'conference' '/img/conference.png' #000,
+	'ipad' '/img/ipad.png' #fbfbfd,
+	'small_business' '/img/small_business.png' #000,
+	'gift' '/img/gift.png' #fbfbfd,
+	'card' '/img/card.png' #fbfbfd,
 );
 
 @each $class,
@@ -153,4 +191,40 @@ $color in $productImage {
 	.product__description {
 		font-size: 20px;
 	}
+}
+
+.footer {
+	@extend .section;
+
+	padding-top: s.space(10);
+	padding-bottom: s.space(10);
+}
+
+.footer__content {
+	@extend .section__content;
+	display: grid;
+	grid-template-columns: repeat(6, 1fr);
+	gap: s.space(5);
+}
+
+.link-list {
+	display: grid;
+	gap: s.space(3);
+}
+
+.link-item {
+	display: grid;
+	gap: 12px;
+}
+
+.list__title {
+	font-size: s.size('small');
+	font-weight: 600;
+	color: s.color('fontDark');
+}
+
+.footer__link {
+	color: s.color('footerMenu');
+	@include s.click;
+	font-size: s.size('small');
 }
